@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 class Person {
     String pname, address, gender;
     int age;
@@ -11,6 +12,7 @@ class Person {
         age = age1;
     }
 }
+
 
 class Employee extends Person {
     String emp_id, cp_name, qualification;
@@ -25,11 +27,13 @@ class Employee extends Person {
     }
 }
 
+
 class Teacher extends Employee {
     int teach_id;
     String department, subject;
 
-    Teacher(int teach_id, String department, String subject, String emp_id, String cp_name, String qualification, float salary, String pname, String address, String gender, int age) {
+    Teacher(int teach_id, String department, String subject, String emp_id, String cp_name, String qualification, float salary,
+            String pname, String address, String gender, int age) {
         super(pname, address, gender, age, emp_id, cp_name, qualification, salary);
         this.teach_id = teach_id;
         this.department = department;
@@ -51,29 +55,60 @@ class Teacher extends Employee {
     }
 }
 
+
 public class MultilevelDemo {
     public static void main(String args[]) {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter number of teachers: ");
         int n = s.nextInt();
-        s.nextLine();
+        s.nextLine();  
+
         Teacher empobj[] = new Teacher[n];
 
         for (int i = 0; i < n; i++) {
             System.out.println("\nEnter Details for Teacher " + (i + 1));
-            System.out.print("Name: "); String pname = s.nextLine();
-            System.out.print("Gender: "); String gender = s.nextLine();
-            System.out.print("Address: "); String address = s.nextLine();
-            System.out.print("Age: "); int age = s.nextInt(); s.nextLine();
-            System.out.print("Employee ID: "); String emp_id = s.nextLine();
-            System.out.print("Company name: "); String cp_name = s.nextLine();
-            System.out.print("Salary: "); float salary = s.nextFloat(); s.nextLine();
-            System.out.print("Qualification: "); String qualification = s.nextLine();
-            System.out.print("Teacher ID: "); int teach_id = s.nextInt(); s.nextLine();
-            System.out.print("Department: "); String department = s.nextLine();
-            System.out.print("Subject taught: "); String subject = s.nextLine();
 
-            empobj[i] = new Teacher(teach_id, department, subject, emp_id, cp_name, qualification, salary, pname, address, gender, age);
+            System.out.print("Name: "); 
+            String pname = s.nextLine();
+
+            System.out.print("Gender: "); 
+            String gender = s.nextLine();
+
+            System.out.print("Address: "); 
+            String address = s.nextLine();
+
+            System.out.print("Age: "); 
+            int age = s.nextInt(); 
+            s.nextLine();
+
+            System.out.print("Employee ID: "); 
+            String emp_id = s.nextLine();
+
+            System.out.print("Company name: "); 
+            String cp_name = s.nextLine();
+
+            System.out.print("Salary: "); 
+            float salary = s.nextFloat(); 
+            s.nextLine(); 
+
+            System.out.print("Qualification: "); 
+            String qualification = s.nextLine();
+
+            System.out.print("Teacher ID: "); 
+            int teach_id = s.nextInt(); 
+            s.nextLine(); 
+
+            System.out.print("Department: "); 
+            String department = s.nextLine();
+
+            System.out.print("Subject taught: "); 
+            String subject = s.nextLine();
+
+            empobj[i] = new Teacher(
+                teach_id, department, subject,
+                emp_id, cp_name, qualification, salary,
+                pname, address, gender, age
+            );
         }
 
         System.out.println("\n--- Teacher Details ---");
@@ -81,6 +116,7 @@ public class MultilevelDemo {
             System.out.println("\nTeacher-" + (i + 1));
             empobj[i].display();
         }
+
         s.close();
     }
 }
